@@ -30,26 +30,29 @@ public class BossBar extends BossInfoServer {
         this.title = title;
 
         if (duration!= -1) {
-            exec.scheduleAtFixedRate(this::decrement, 0, 1, TimeUnit.SECONDS);
+            exec.scheduleAtFixedRate(this::updateBossBar, 0, 1, TimeUnit.SECONDS);
         } else {
             this.setName(new TextComponentString(title.replace("$time", "")));
         }
     }
 
-    void decrement() {
-        if (remaining >0) {
-            remaining -= 1;
+    void updateBossBar() {
+        if (remaining>0 || remaining==-1) {
+            if (remaining>0) {
+                remaining -= 1;
+            }
+            //Force the boss bars to appear at each update, so they reappear even if a new player joins or if players relog
+            for (EntityPlayerMP playerMP:BossBarTimers.server.getPlayerList().getPlayers()) {
+                for (BossBar bossbar : BossBarTimers.bossbars) {
+                    bossbar.addPlayer(playerMP);
+                }
+            }
         } else {
             exec.shutdownNow();
             for (EntityPlayerMP playerMP:BossBarTimers.server.getPlayerList().getPlayers()) {
                 this.removePlayer(playerMP);
             }
             BossBarTimers.removeBar(title,duration,remaining);
-            //BossBarTimers.logger.error("Bar attempting to be removed: " + title + "D: " + duration+ " R: " + remaining);
-            //for (BossBar bar:BossBarTimers.bossbars) {
-            //    BossBarTimers.logger.error("Existing Boss Bars:");
-            //    BossBarTimers.logger.error(BossBarTimers.bossbars.get(BossBarTimers.bossbars.indexOf(bar)).title + "D: " + BossBarTimers.bossbars.get(BossBarTimers.bossbars.indexOf(bar)).duration+ " R: " + BossBarTimers.bossbars.get(BossBarTimers.bossbars.indexOf(bar)).remaining);
-            //}
         }
         this.setPercent((float)remaining/duration);
 
