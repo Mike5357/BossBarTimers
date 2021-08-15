@@ -13,4 +13,4 @@ Commands:
 **/bbt removecontaining \<string>** - Removes a specific boss bar that contains whatever you input  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex. /bbt removecontaining Shiny  - Removes a boss bar that contains "Shiny" in its title  
 **/bbt start \<color> <duration (in seconds)> \<title>** - Creates a new timer that decrements every second automatically. Setting duration to -1 creates a boss bar that will remain on screen until killed, or the server reboots. $time can be used in the title as a placeholder for time remaining in 00:00 format.  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex. /bbt start blue 10 &aThere is $time remaining!  - Creates a blue boss bar that will count down from 10 until it hits 0.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex. /bbt start blue 10 &aThere is $time remaining!  - Creates a blue boss bar that will count down from 10 and disappear once its hits 0  
