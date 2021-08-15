@@ -2,7 +2,7 @@
 Forge 1.12.2 plugin utilizing the Minecraft boss bar to create timers that count down and update in real time.  
 This plugin can be used in conjunction with event plugins or manually triggered to create countdowns for all players to see!  
 
-There are no permission nodes for this; Commands can only be used by OP's (permission level 4), and boss bars will show to ALL players online (...for now.)  
+There are no permission nodes for this; Commands can only be used by OP's (permission level 4) or sent from console, and boss bars will show to ALL players online (...for now.)  
 
 Commands:
 
