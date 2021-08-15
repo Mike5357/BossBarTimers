@@ -91,8 +91,7 @@ public class BBTCommand extends CommandBase {
                             return;
                         }
 
-                        //args 3 - title (must be included in ")
-                        //default: Show start command usage
+                        //args 3 - title
                         for (int i=3;i< args.length;i++) { //this should loop through all arguments past 3 and append them as a single string
                             title = title.concat(args[i])+" ";
                         }
@@ -144,13 +143,13 @@ public class BBTCommand extends CommandBase {
                             return;
                         }
                     } else {
-                        sender.sendMessage(new TextComponentString("\u00a7cNot enough arguments! /bbt start <color> <duration(s)> <title>"));
+                        sender.sendMessage(new TextComponentString("\u00a7cNot enough arguments! /bbt remove <id>\n\u00a7cUse \\u00a7e/bbt list \\u00a7cto find a valid active timer ID.\""));
                     }
                     break;
                 }
                 case "killcontaining":
                 case "removecontaining": {
-                    //kill all boss bars with specific contents
+                    //kill boss bar with specific contents
                     if (args.length>1) {
                         if (BossBarTimers.bossbars.size()>0) {
                             sender.sendMessage(new TextComponentString("\u00a76Boss Bars Removed:"));
