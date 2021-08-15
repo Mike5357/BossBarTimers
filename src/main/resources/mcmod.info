@@ -1,0 +1,19 @@
+[
+  {
+    "modid": "BossBarTimers",
+    "name": "BossBarTimers",
+    "description": "Command-initiated boss bar timers for boosters etc",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "Mike5357",
+      "TheNodeMC"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
